@@ -1,0 +1,14 @@
+/* path must update based on downloaded javafx-sdk-26 file */
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch GUI",
+            "request": "launch",
+            "mainClass": "gui.Main",
+            "vmArgs": "--module-path /Users/taylor/Downloads/javafx-sdk-26/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
+
