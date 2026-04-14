@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "lib/junit-platform-console-standalone-6.0.3.jar",
+        "lib/gson-2.13.2.jar",
+        "/Users/taylor/Downloads/javafx-sdk-26/lib/*.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
+}
