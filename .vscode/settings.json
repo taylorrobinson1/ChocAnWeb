@@ -1,3 +1,4 @@
+/* must change based on folder path of java fx */
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
