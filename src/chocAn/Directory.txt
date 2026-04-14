@@ -1,0 +1,7 @@
+598470 - Session with a Dietian - $50
+883948 - Aerobics excercise session - $60
+112233 - Bootcamp - $110
+445566 - Personal Training - $45
+009988 - Group Therapy - $60
+123123 - Exposure Therapy - $30
+123456 - Check Up - $20

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ChocAn Group 7" default="make-package">
+    <property name="src.dir" location="src"/>
+    <property name="release.dir" location="release"/>
+    <property name="build.dir" location="bin"/>
+    <property name="doc.dir" location="docs"/>
+    <property name="lib.dir" location="lib"/>
+    <property name="javafx.dir" location="/Library/Java/JavaVirtualMachines/javafx-sdk-26/lib"/>
+
+    <property name="jar.name" value="${release.dir}/ChocAn.jar"/>
+    <property name="jar.gui.name" value="${release.dir}/ChocAnGUI.jar"/>
+    
+
+    <path id="lib.classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+        <fileset dir="${javafx.dir}" includes="**/*.jar"/>
+    </path>
+
+    <target name="clean" description="Deletes old compiled files and folders">
+        <delete dir="release"/> 
+        <delete dir="${build.dir}"/>
+        <delete dir="${doc.dir}"/>
+        <delete file="${jar.name}"/>
+    </target>
+
+    <target name="compile" depends="clean" description="Compiles Java source code">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" 
+        destdir="${build.dir}" 
+        includeantruntime="false"
+        classpathref="lib.classpath"/>
+    </target>
+
+    <target name="make-package" depends="compile, generate-docs" description="Packages compiled code into a JAR">
+        <mkdir dir="${release.dir}"/>
+        <jar destfile="${jar.name}">
+            <fileset dir="${build.dir}" includes="**/*.class"/>
+            <zipfileset src="${lib.dir}/gson-2.13.2.jar"/>
+            <zipfileset src="${lib.dir}/junit-platform-console-standalone-6.0.3.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="chocAn.Main"/>
+            </manifest>
+        </jar>
+        <echo message="Success! ${jar.name} is ready to run."/>
+    </target>
+
+    <target name="make-package-gui" depends="compile, generate-docs" description="Packages GUI JAR">
+        <mkdir dir="${release.dir}"/>
+        <jar destfile="${jar.gui.name}">
+            <fileset dir="${build.dir}" includes="**/*.class"/>
+            <zipfileset src="${lib.dir}/gson-2.13.2.jar"/>
+            <zipfileset src="${lib.dir}/junit-platform-console-standalone-6.0.3.jar"/>
+            <zipfileset dir="${javafx.dir}" includes="**/*.jar"/>
+            <manifest>
+                <attribute name="Main-Class" value="gui.Main"/>
+            </manifest>
+        </jar>
+        <echo message="Success! ${jar.gui.name} is ready to run."/>
+    </target>
+
+    <target name="make-all" depends="make-package, make-package-gui" 
+        description="Builds both CLI and GUI JARs"/>
+
+    <target name="generate-docs" description="Generates HTML documentation">
+        <mkdir dir="${doc.dir}"/>
+        <javadoc destdir="${doc.dir}" 
+                 classpath="${build.dir}" 
+                 failonerror="true">
+            <classpath refid="lib.classpath"/>
+            <fileset dir="${src.dir}" includes="**/*.java"/>
+        </javadoc>
+        <echo message="Javadocs created! Right-click docs/index.html and Reveal in Finder/Explorer."/>
+    </target>
+
+</project>
