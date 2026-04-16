@@ -1,5 +1,7 @@
 ChocAnWeb Software implementation Video Link: https://youtu.be/QnOkVj55E80
 
+This video provides a walkthrough of the ChocAn Management System, a Java‑based application developed to manage member verification, provider interactions, and service record processing. The demonstration highlights the system’s graphical user interface, built with JavaFX, and shows how providers can authenticate members, record services, review account information, and generate weekly reports. The video explains the purpose of each menu option, the underlying data flow, and how the application ensures accurate and efficient handling of ChocAn’s operational tasks. The goal of the video is to illustrate the system’s functionality, design decisions, and end‑to‑end workflow.
+
 Clickable Link in comments below!
 
 Lets Chat! Ask any questions about the system in the comments!
