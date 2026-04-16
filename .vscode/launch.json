@@ -7,7 +7,10 @@
             "name": "Launch GUI",
             "request": "launch",
             "mainClass": "gui.Main",
-            "vmArgs": "--module-path /Users/taylor/Downloads/javafx-sdk-26/lib --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path /Users/taylor/Downloads/javafx-sdk-26/lib --add-modules javafx.controls,javafx.fxml",
+            "classPaths": [
+                "src"
+            ]
         }
     ]
 }
